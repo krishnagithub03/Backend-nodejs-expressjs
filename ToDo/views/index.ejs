@@ -1,0 +1,25 @@
+<!-- Header -->
+<%- include("partials/header.ejs") %>
+<% const date = new Date(); %>
+<% const day = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]; %>
+<% const month = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; %>
+<h1><%= day[date.getDay()] %>, <%= month[date.getMonth()] %> <%= date.getDate()%></h1>
+
+<div class="list">
+    <% if(locals.item){ %>
+        <% for(let i=0; i<item.length ; i++) { %>
+            <input type="checkbox" name="" id="addedTask">  <span id="display"><%= item[i] %></span><br>
+        <% } %>
+    <% } %>
+</div>
+
+<form action="/submit" method="POST">
+    <input type="text" value="" name="task" id="inputTask" placeholder="New Item">
+    <button class="w3-button w3-xlarge w3-circle w3-purple w3-card-4">+</button>
+</form>
+
+
+<!--footer-->
+<%- include("partials/footer.ejs") %>
+
+

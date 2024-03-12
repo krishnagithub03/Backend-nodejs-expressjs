@@ -1,0 +1,12 @@
+socho agar 5 req aayi and tumne apne code mai sirf blocking operation likh rahe hai toh sabko threads doge and kitna wait time ho jayega toh 
+
+
+it is not prefereed to have blocking operations 
+matlab sab kuch async mai likho
+
+
+sync -- blocking
+async -- non blocking operations
+
+
+now got to file handling folder

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Login-Signup page/public/main.css">
+    <title>Login/Signup</title>
+</head>
+<body>
+    <% if(locals.userName && locals.code) { %>
+        Hey,<%= userName.toUpperCase() %> WELCOME TO KRITZWORLD!!
+        Your password is : <%= code %>
+    <% } else { %>
+    <form action="/submit" method="post" id="container">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" required>
+        <input type="submit" value="Submit">
+    </form>
+    <% } %>
+</body>
+</html>
