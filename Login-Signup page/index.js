@@ -1,6 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
-
+// const fs = require('fs');
+import fs from "fs";
 const app = express();
 const port = 3000;
 
@@ -19,11 +20,15 @@ app.post("/submit",(req,res)=>{
     console.log("username :" + username);
     console.log("password :" + pass);
 
-    res.render("index.ejs",
-  {
-    userName : username,
-    code : pass,
-  });
+    const credentials = username+pass;
+    fs.appendFile('./log.txt',credentials,(err,data) =>{
+      res.render("index.ejs",
+    {
+      userName : username,
+      code : pass,
+    });
+    });
+
 })
 
 app.listen(port,()=>{
